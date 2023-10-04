@@ -1,5 +1,5 @@
 function pokemonCard(pokemon) {
-	console.log(pokemon);
+	console.log(pokemon.types);
 
 	const colours = {
 		normal: '#A8A77A',
@@ -22,29 +22,30 @@ function pokemonCard(pokemon) {
 		fairy: '#D685AD',
 	};
 
-	const pokemonTypes = pokemon.types.map((slot) => {
-		return `<li class="type" style="background-color: ${
-			colours[pokemon.types[0].type.name]
-		};">${slot.type.name}</li>`;
-	});
-
 	return `
         <li class="pokemon" style="background-color: ${
-			colours[pokemon.types[0].type.name]
-		};">
-            <span class="number">#${pokemon.id
+			colours[pokemon.type]
+		};" onmouseover="this.style.boxShadow='${
+		colours[pokemon.type]
+	} 0px 8px 24px'" onmouseout="this.style.boxShadow='none'"">
+            <span class="number">#${pokemon.number
 				.toString()
 				.padStart(3, '0')}</span>
             <span class="name">${pokemon.name}</span>
 
             <div class="detail">
                 <ol class="types">
-                    ${pokemonTypes.join('')}
+                    ${pokemon.types
+						.map(
+							(type) =>
+								`<li class="type" style="background-color: ${
+									colours[pokemon.type]
+								};">${type}</li>`
+						)
+						.join('')}
                 </ol>
                 <img
-                    src="${
-						pokemon.sprites.other['official-artwork'].front_default
-					}"
+                    src="${pokemon.picture}"
                     alt="${pokemon.name}"/>
             </div>
         </li>`;
