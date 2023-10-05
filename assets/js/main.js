@@ -21,9 +21,12 @@ function pokemonCard(pokemon) {
 	};
 
 	return `
-	<li class="pokemon" style="background-color: ${colours[pokemon.type]}"
+	<li class="pokemon"
+	style="background-color: ${colours[pokemon.type]}"
+	data-pokemon-id="${pokemon.number}"
     onmouseover="this.style.boxShadow='${colours[pokemon.type]} 0px 8px 24px'"
-    onmouseout="this.style.boxShadow='none'">
+    onmouseout="this.style.boxShadow='none'"
+	onclick="handlePokemonClick(this)">
     	<span class="number">#${pokemon.number.toString().padStart(3, '0')}</span>
     	<span class="name">${pokemon.name}</span>
 
@@ -46,6 +49,11 @@ const pokemonHTML = document.getElementById('pokemons');
 const loadMoreButton = document.getElementById('loadMore');
 let offset = 0;
 const limit = 12;
+
+function handlePokemonClick(element) {
+	const pokemonId = element.getAttribute('data-pokemon-id');
+	window.location.href = `pages/pokemon_details.html?id=${pokemonId}`;
+}
 
 function loadPokemons(offset, limit) {
 	pokeApi

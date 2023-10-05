@@ -4,6 +4,22 @@ function toPokemonModel(pokemonDetail) {
 	const pokemon = new Pokemon();
 	const types = pokemonDetail.types.map((typeSlot) => typeSlot.type.name);
 	const [type] = types;
+	const abilities = pokemonDetail.abilities.map(
+		(abilitieSlot) => abilitieSlot.ability.name
+	);
+	const stats = pokemonDetail.stats.map((slot) => {
+		return (stat = {
+			name: slot.stat.name,
+			value: slot.base_stat,
+		});
+	});
+
+	const frontSprite =
+		pokemonDetail.sprites.versions['generation-v']['black-white']?.animated
+			?.front_default;
+	const backSprite =
+		pokemonDetail.sprites.versions['generation-v']['black-white']?.animated
+			?.back_default;
 
 	pokemon.number = pokemonDetail.id;
 	pokemon.name = pokemonDetail.name;
@@ -11,6 +27,12 @@ function toPokemonModel(pokemonDetail) {
 	pokemon.type = type;
 	pokemon.picture =
 		pokemonDetail.sprites.other['official-artwork'].front_default;
+	pokemon.height = pokemonDetail.height;
+	pokemon.weight = pokemonDetail.weight;
+	pokemon.abilities = abilities;
+	pokemon.stats = stats;
+	pokemon.frontSprite = frontSprite;
+	pokemon.backSprite = backSprite;
 
 	return pokemon;
 }
@@ -30,4 +52,16 @@ pokeApi.getPokemons = (offset = 0, limit = 12) => {
 		.then((pokemons) => pokemons.map(pokeApi.getPokemonsDetails))
 		.then((detailsRequest) => Promise.all(detailsRequest))
 		.then((pokemonDetails) => pokemonDetails);
+};
+
+pokeApi.getSinglePokemon = async (id) => {
+	const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+	try {
+		const response = await fetch(url);
+		const data = await response.json();
+		return toPokemonModel(data);
+	} catch (error) {
+		console.log(error);
+	}
 };
