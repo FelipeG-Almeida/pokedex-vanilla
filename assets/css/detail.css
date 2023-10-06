@@ -1,3 +1,13 @@
+.content {
+	padding: 0;
+}
+
+#info {
+	display: flex;
+	flex-direction: column;
+	padding: 2rem 1rem 0 1rem;
+}
+
 #info button {
 	background-color: transparent;
 	border: none;
@@ -7,7 +17,7 @@
 #info__container {
 	align-items: center;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 button a {
@@ -38,5 +48,54 @@ button a {
 }
 
 #pokemon-img {
-    width: 200px;
+	align-self: center;
+	position: relative;
+	top: 30px;
+	filter: drop-shadow(15px 5px rgba(0, 0, 0, 0.2));
+	width: 200px;
+}
+
+#about {
+	background-color: #fff;
+	border-collapse: collapse;
+	border-radius: 2rem 2rem 1rem 1rem;
+	padding: 1.5rem 2rem;
+}
+
+.subtitle {
+	font-size: 1.250rem;
+	font-weight: 700;
+}
+
+#basic, #stats {
+	align-items: center;
+	display: grid;
+	font-size: 1.120rem;
+	font-weight: 300;
+	grid-template-columns: 35% 50%;
+}
+
+#basic p, #stats p {
+	color: #86898c;
+}
+
+#sprites {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+#sprites img {
+	width: 35%;
+}
+
+
+@media screen and (min-width: 768px) {
+	#info {
+		padding: 2rem 25% 0 25%;
+	}
+
+	#sprites img {
+		width: 20%;
+	}
 }

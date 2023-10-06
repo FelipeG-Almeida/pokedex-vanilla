@@ -5,7 +5,9 @@ function toPokemonModel(pokemonDetail) {
 	const types = pokemonDetail.types.map((typeSlot) => typeSlot.type.name);
 	const [type] = types;
 	const abilities = pokemonDetail.abilities.map(
-		(abilitieSlot) => abilitieSlot.ability.name
+		(abilitieSlot) =>
+			abilitieSlot.ability.name.charAt(0).toUpperCase() +
+			abilitieSlot.ability.name.slice(1)
 	);
 	const stats = pokemonDetail.stats.map((slot) => {
 		return (stat = {
@@ -29,7 +31,7 @@ function toPokemonModel(pokemonDetail) {
 		pokemonDetail.sprites.other['official-artwork'].front_default;
 	pokemon.height = pokemonDetail.height;
 	pokemon.weight = pokemonDetail.weight;
-	pokemon.abilities = abilities;
+	pokemon.abilities = abilities.join(', ');
 	pokemon.stats = stats;
 	pokemon.frontSprite = frontSprite;
 	pokemon.backSprite = backSprite;

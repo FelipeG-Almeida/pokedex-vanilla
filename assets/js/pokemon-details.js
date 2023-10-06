@@ -41,8 +41,12 @@ async function loadPokemonDetails() {
 				colours[pokemon.type];
 		}
 		document.getElementById('pokemon-img').src = pokemon.picture;
-		document.getElementById('height').textContent = pokemon.height;
-		document.getElementById('weight').textContent = pokemon.weight;
+		document.getElementById('height').textContent = `${
+			pokemon.height * 10
+		} cm`;
+		document.getElementById('weight').textContent = `${
+			pokemon.weight / 10
+		} kg`;
 		document.getElementById('abilities').textContent = pokemon.abilities;
 		document.getElementById('hp').textContent = pokemon.stats[0].value;
 		document.getElementById('attack').textContent = pokemon.stats[1].value;
