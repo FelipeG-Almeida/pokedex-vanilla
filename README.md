@@ -11,8 +11,16 @@
 
 
 <h2>📷 Capturas de Tela</h2>
-![Mobile 1](https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/661594de-91aa-4813-a2da-b0e3bbdefa68)
-![Mobile 0](https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/42b25761-938e-4a67-bc00-75acc28ff1d7)
+
+<p align="center">
+  <kbd>
+    <img width="50%" src="https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/42b25761-938e-4a67-bc00-75acc28ff1d7" />
+  </kbd>
+  <kbd>
+    <img width="50%" src="https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/661594de-91aa-4813-a2da-b0e3bbdefa68" />
+  </kbd>
+</p>
+
 ![Desktop 1](https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/0ffde966-7a01-4bad-aa5b-651518fea928)
 ![Desktop 0](https://github.com/FelipeG-Almeida/pokedex-vanilla/assets/73674044/c27af6f4-147a-4cf9-b4b6-7ba5a96532a5)
 
