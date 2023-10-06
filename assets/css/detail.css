@@ -1,0 +1,42 @@
+#info button {
+	background-color: transparent;
+	border: none;
+	justify-self: start;
+}
+
+#info__container {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+button a {
+	color: #fff;
+	font-family: 'Roboto', 'Sans-serif';
+	font-size: 1.25rem;
+	text-decoration: none;
+}
+
+#pokemon-name {
+	color: #fff;
+	text-transform: capitalize;
+}
+
+#number {
+	color: #fff;
+	font-size: 1.125rem;
+	font-weight: 300;
+}
+
+#types span {
+	border-radius: 1rem;
+	color: #fff;
+	filter: brightness(115%);
+	font-size: 0.75rem;
+	padding: 0.5rem 1rem;
+	text-transform: capitalize;
+}
+
+#pokemon-img {
+    width: 200px;
+}
